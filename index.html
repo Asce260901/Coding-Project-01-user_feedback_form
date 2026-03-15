@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <h1>User Feedback Form</h1>
+
+    <form id="feedback-form">
+        <div class="form-group" data-tooltip="Enter your full name.">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" maxlength="60" autocomplete="off">
+            <div class="meta-row">
+                <span class="validation-msg" id="name-err"></span>
+                <span class="char-count" id="name-count">0 / 60</span>
+            </div>
+        </div>
+
+        <div class="form-group" data-tooltip="We'll never share your email.">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" maxlength="80" autocomplete="off">
+            <div class="meta-row">
+                <span class="validation-msg" id="email-err"></span>
+                <span class="char-count" id="email-count">0 / 80</span>
+            </div>
+        </div>
+
+        <div class="form-group" data-tooltip="Share your thoughts — good or bad!">
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" maxlength="400" rows="5"></textarea>
+            <div class="meta-row">
+                <span class="validation-msg" id="feedback-err"></span>
+                <span class="char-count" id="feedback-count">0 / 400</span>
+            </div>
+        </div>
+
+        <button id="submitbtn" type="submit">Submit</button>
+    </form>
+
+    <div id="feedback-display"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
