@@ -1,3 +1,4 @@
+/* ===== CSS VARIABLES ===== */
 :root {
     --bg:         #0a0f1e;
     --surface:    #0d1526;
@@ -13,11 +14,15 @@
     --glow-green: 0 0 12px rgba(0, 255, 170, 0.4);
     --glow-red:   0 0 12px rgba(255, 77, 109, 0.4);
 }
+
+/* ===== GLOBAL STYLES ===== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+/* Body with grid background pattern */
 body {
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--bg);
@@ -29,6 +34,8 @@ body {
         linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
     background-size: 40px 40px;
 }
+
+/* ===== HEADING ===== */
 h1 {
     text-align: center;
     font-size: 1.8rem;
@@ -38,6 +45,8 @@ h1 {
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
+
+/* ===== FORM CONTAINER ===== */
 #feedback-form {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -48,9 +57,13 @@ h1 {
     box-shadow: 0 0 30px rgba(0, 212, 255, 0.08), inset 0 0 30px rgba(0, 0, 0, 0.3);
     border-top: 2px solid var(--accent);
 }
+
+/* Form group spacing */
 .form-group {
     margin-bottom: 1.2rem;
 }
+
+/* ===== FORM INPUTS ===== */
 label {
     display: block;
     font-weight: 600;
@@ -60,6 +73,8 @@ label {
     letter-spacing: 0.12em;
     text-transform: uppercase;
 }
+
+/* Text, email, and textarea inputs */
 input[type="text"],
 input[type="email"],
 textarea {
@@ -75,25 +90,35 @@ textarea {
     transition: border-color 0.2s, box-shadow 0.2s;
     resize: vertical;
 }
+
+/* Placeholder text styling */
 input::placeholder,
 textarea::placeholder {
     color: var(--muted);
 }
+
+/* Focus state with accent glow */
 input:focus,
 textarea:focus {
     border-color: var(--accent);
     box-shadow: var(--glow);
 }
+
+/* Invalid input state (red border and glow) */
 input.invalid,
 textarea.invalid {
     border-color: var(--error);
     box-shadow: var(--glow-red);
 }
+
+/* Valid input state (green border and glow) */
 input.valid,
 textarea.valid {
     border-color: var(--success);
     box-shadow: var(--glow-green);
 }
+
+/* ===== VALIDATION & FEEDBACK ===== */
 .validation-msg {
     display: block;
     font-size: 0.75rem;
@@ -102,19 +127,26 @@ textarea.valid {
     margin-top: 0.25rem;
     letter-spacing: 0.05em;
 }
+
+/* Character counter row */
 .counter-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 0.25rem;
 }
+
+/* Character counter display */
 #feedback-count {
     font-size: 0.75rem;
     color: var(--muted);
     letter-spacing: 0.05em;
 }
+
 #feedback-count.warn  { color: #f59e0b; }
 #feedback-count.limit { color: var(--error); font-weight: 600; }
+
+/* ===== SUBMIT BUTTON ===== */
 #submitbtn {
     width: 100%;
     padding: 0.65rem;
@@ -132,13 +164,17 @@ textarea.valid {
     margin-top: 0.5rem;
     box-shadow: var(--glow);
 }
+
 #submitbtn:hover {
     background-color: var(--accent-dim);
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
 }
+
 #submitbtn:active {
     transform: scale(0.98);
 }
+
+/* ===== TOOLTIP ===== */
 .tooltip {
     position: fixed;
     background: var(--surface2);
@@ -156,9 +192,12 @@ textarea.valid {
     box-shadow: var(--glow);
     letter-spacing: 0.05em;
 }
+
 .tooltip.show {
     opacity: 1;
 }
+
+/* ===== FEEDBACK DISPLAY ===== */
 #feedback-display {
     max-width: 500px;
     margin: 1.5rem auto 0;
@@ -166,6 +205,8 @@ textarea.valid {
     flex-direction: column;
     gap: 1rem;
 }
+
+/* Individual feedback entry card */
 .feedback-entry {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -175,18 +216,25 @@ textarea.valid {
     box-shadow: var(--glow-green);
     animation: slideIn 0.3s ease;
 }
+
+/* Slide-in animation for new entries */
 @keyframes slideIn {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+
+/* Entry header (name and email row) */
 .entry-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 0.5rem;
 }
+
 .entry-name  { font-weight: 700; font-size: 0.95rem; color: var(--accent); }
 .entry-email { font-size: 0.75rem; color: var(--muted); }
+
+/* Feedback comment text */
 .entry-comment {
     font-size: 0.88rem;
     line-height: 1.6;
@@ -194,7 +242,12 @@ textarea.valid {
     border-top: 1px solid var(--border);
     padding-top: 0.5rem;
     margin-top: 0.4rem;
+    overflow-wrap: break-word;  /* breaks long unbroken strings */
+    word-break: break-word;     /* fallback for older browsers   */
+    white-space: pre-wrap;      /* preserves intentional newlines */
 }
+
+/* Timestamp styling */
 .entry-time {
     font-size: 0.70rem;
     color: var(--muted);
@@ -202,14 +255,19 @@ textarea.valid {
     margin-top: 0.4rem;
     letter-spacing: 0.05em;
 }
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 480px) {
     #feedback-form { padding: 1.2rem 1rem; }
 }
+
+/* ===== CLEAR BUTTON ===== */
 #clear-wrap {
     max-width: 500px;
     margin: 1rem auto 0;
     text-align: right;
 }
+
 #clear-btn {
     padding: 0.4rem 1rem;
     font-size: 0.75rem;
@@ -224,11 +282,13 @@ textarea.valid {
     cursor: pointer;
     transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
 }
+
 #clear-btn:hover {
     background-color: var(--error);
     color: var(--bg);
     box-shadow: var(--glow-red);
 }
+
 #clear-btn:active {
     transform: scale(0.97);
 }

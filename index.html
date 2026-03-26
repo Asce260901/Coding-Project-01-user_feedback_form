@@ -8,24 +8,29 @@
 </head>
 <body>
 
+    <!-- Tooltip element for displaying help text on hover -->
     <div id="tooltip" class="tooltip"></div>
 
     <h1>User Feedback Form</h1>
 
+    <!-- Main feedback form -->
     <form id="feedback-form">
 
+        <!-- Name input field with tooltip -->
         <div class="form-group" data-tooltip="Enter your full name.">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" autocomplete="off">
             <span class="validation-msg" id="name-err"></span>
         </div>
 
+        <!-- Email input field with tooltip -->
         <div class="form-group" data-tooltip="Enter a valid email address.">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" autocomplete="off">
             <span class="validation-msg" id="email-err"></span>
         </div>
 
+        <!-- Feedback textarea with character counter -->
         <div class="form-group" data-tooltip="Share your feedback (max 600 characters).">
             <label for="feedback">Feedback:</label>
             <textarea id="feedback" name="feedback" rows="5" maxlength="600"></textarea>
@@ -35,16 +40,20 @@
             </div>
         </div>
 
+        <!-- Submit button -->
         <button type="submit" id="submitbtn">Submit</button>
 
     </form>
 
+    <!-- Container for displaying submitted feedback -->
     <div id="feedback-display"></div>
 
+    <!-- Clear button to remove all feedback comments -->
     <div id="clear-wrap">
         <button id="clear-btn">Clear All Comments</button>
     </div>
 
+    <!-- JavaScript file with form logic -->
     <script src="cp_1.js"></script>
 </body>
 </html>
